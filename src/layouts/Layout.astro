@@ -60,7 +60,11 @@ const jsonLd = {
 
     {!noindex && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
-    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script is:inline>
+      // Einblend-Animationen nur, wenn das Seitenskript wirklich startet – sonst alles sofort zeigen
+      document.documentElement.classList.add('js');
+      setTimeout(function () { if (!window.__huzurReady) document.documentElement.classList.remove('js'); }, 2500);
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
