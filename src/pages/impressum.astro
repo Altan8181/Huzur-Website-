@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubHeader from '../components/SubHeader.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../config';
+---
+<Layout title="Impressum – Huzur & Co" description="Impressum von Huzur & Co." noindex>
+  <SubHeader />
+  <main id="inhalt" class="legal">
+    <div class="wrap">
+      <p class="kicker">Rechtliches</p>
+      <h1>Impressum</h1>
+
+      <p class="note">
+        Platzhalter: Bitte vor dem Livegang mit deinen echten Angaben ausfüllen
+        (Angaben gemäß § 5 DDG). Am einfachsten mit einem Impressum-Generator, z. B. von der IHK oder e-recht24.
+      </p>
+
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p>
+        [Vor- und Nachname / Firmenname]<br />
+        [Straße Hausnummer]<br />
+        [PLZ Ort]<br />
+        Deutschland
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a><br />
+        Telefon: [optional]
+      </p>
+
+      <h2>Umsatzsteuer-ID</h2>
+      <p>[Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG, falls vorhanden]</p>
+
+      <h2>Verantwortlich für den Inhalt</h2>
+      <p>[Name, Anschrift wie oben]</p>
+    </div>
+  </main>
+  <Footer />
+</Layout>

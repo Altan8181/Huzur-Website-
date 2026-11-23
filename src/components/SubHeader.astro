@@ -1,0 +1,16 @@
+---
+import Logo from './Logo.astro';
+---
+<header class="sub-header">
+  <div class="wrap inner">
+    <a href="/" aria-label="Huzur & Co – Startseite"><Logo /></a>
+    <a href="/" class="back">← Zur Startseite</a>
+  </div>
+</header>
+
+<style>
+  .sub-header { border-bottom: 1px solid var(--line); }
+  .inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  a { text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+  .back { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber-text); }
+</style>

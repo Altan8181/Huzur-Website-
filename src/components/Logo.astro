@@ -1,0 +1,78 @@
+---
+interface Props {
+  size?: 'sm' | 'lg';
+  tone?: 'dark' | 'light';
+  wordmark?: boolean;
+}
+const { size = 'sm', tone = 'dark', wordmark = true } = Astro.props;
+---
+
+<span class:list={['logo', `logo--${size}`, `logo--${tone}`]}>
+  <svg class="logo-mark" viewBox="0 0 64 80" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+    <path d="M6 77V33a26 26 0 0 1 52 0v44" stroke-width="3" />
+    <path d="M15 77V35a17 17 0 0 1 34 0v42" stroke-width="1.6" />
+    <path d="M2 77h60" stroke-width="3" />
+    <path class="logo-flame" d="M32 44c4.2 5.6 6.2 9 6.2 12a6.2 6.2 0 0 1-12.4 0c0-3 2-6.4 6.2-12z" fill="currentColor" stroke="none" />
+  </svg>
+  {wordmark && (
+    <span class="logo-word">
+      <span class="logo-name">Huzur</span>
+      <span class="logo-co">&amp; Co.</span>
+    </span>
+  )}
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+  }
+  .logo-mark {
+    width: 26px;
+    height: auto;
+    color: var(--amber);
+    flex-shrink: 0;
+  }
+  .logo-flame {
+    transform-origin: 50% 70%;
+    transform-box: fill-box;
+    animation: flame 4.5s ease-in-out infinite;
+  }
+  .logo-word {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+  }
+  .logo-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin-right: -0.24em;
+  }
+  .logo-co {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.82rem;
+    margin-top: 3px;
+    color: var(--amber-text);
+  }
+  .logo--light { color: var(--cream); }
+  .logo--light .logo-co { color: var(--amber-light); }
+  .logo--light .logo-mark { color: var(--amber-light); }
+
+  .logo--lg { flex-direction: column; gap: 20px; }
+  .logo--lg .logo-mark { width: 54px; }
+  .logo--lg .logo-name { font-size: 1.9rem; }
+  .logo--lg .logo-co { font-size: 1.1rem; margin-top: 6px; }
+
+  @keyframes flame {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    30% { transform: scale(0.96, 1.05) rotate(-2deg); }
+    60% { transform: scale(1.03, 0.97) rotate(1.5deg); }
+  }
+</style>
